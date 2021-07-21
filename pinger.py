@@ -15,7 +15,11 @@ def ping():
         for i in search:
             i = i.replace("time=", "")
             time.append(i)
-        return time
+        if len(time) != 0:
+            return time
+        else:
+            time.append(0)
+            return time
     
     except KeyboardInterrupt:
         sys.exit(1)
@@ -57,7 +61,7 @@ def main():
 
                 csv_writer.writerow(info)
                 count += 1
-                print(info)
+                print("\r{}".format(i))
 
 
 if __name__ == "__main__":
